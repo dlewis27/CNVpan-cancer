@@ -15,7 +15,8 @@ data = sig_genes_by_cancer %>%
     )
 
 ggplot(data, aes(x=reorder(cancer, -counts), y=counts)) +
-  geom_bar(position='dodge', stat='identity') +
+  geom_col(position='dodge', stat='identity') +
   xlab('Cancer Type') +
   ylab('Number of Genes') +
+  geom_text(aes(label=counts), position=position_dodge(width=0.9), vjust=-0.25) +
   theme_bw()
